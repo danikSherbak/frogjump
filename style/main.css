@@ -1,0 +1,102 @@
+body, html {
+  height: 100%;
+  display: grid;
+}
+
+#main {
+  margin: auto;
+  padding: 0;
+  list-style-type: none;
+  display: block;
+  width: 400px;
+}
+
+#level {
+  margin: auto;
+  display: none;
+  width: 500px;
+  height: 500px;
+}
+
+#levelNumber {
+  margin: auto;
+  width: 400px;
+  overflow: auto;
+  height: 300px;
+}
+
+.create {
+  float: right;
+}
+
+button {
+  width: 100px;
+  height: 100px;
+  background-color: #949494;
+  color: #fff;
+  padding: 5px;
+  font-size: 30px;
+  font-weight: bold;
+  border-radius: 1em;
+  box-shadow: 6px 6px #666;
+}
+
+.back{
+  width: 100%;
+  height: 100px;
+  background-color: #949494;
+  color: #fff;
+  padding: 5px;
+  font-size: 30px;
+  font-weight: bold;
+  border-radius: 1em;
+  box-shadow: 6px 6px #666;
+}
+
+#cnv{
+  width: 700px;
+  height: 800px;
+  display: none;
+  margin: auto;
+}
+
+#siting {
+  width: 100%;
+  height: 400px;
+}
+
+#text {
+  width: 100%;
+  text-decoration: Lato;
+  font-size: 50px;
+}
+
+.Namelevel {
+  font-size: 50px;
+  text-align:  center;
+}
+
+#CANVAS {
+  zoom: 70%;
+}
+
+#gameOver {
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  height: 100%; 
+  background: rgba(0,0,0,0.8); 
+  display: none; 
+}
+
+#gameOver2 {
+  position: absolute; 
+  background: #ffffff; 
+  width: 400px; 
+  left: 50%; 
+  top: 50%; 
+  transform: translate(-50%, -50%); 
+  padding: 30px; 
+  padding-top: 60px; 
+}

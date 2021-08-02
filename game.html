@@ -3,101 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title>Название документа</title>
-    <style>js
-    	body, html {
-  height: 100%;
-  display: grid;
-}
-      #main {
-        margin: auto;
-        padding: 0;
-        list-style-type: none;
-        display: block;
-        width: 400px;
-      }
-      #level{
-      	margin: auto;
-      	display: none;
-      width: 500px;
-      height: 500px;
-      }
-      #levelNumber{
-      margin: auto;
-      width: 400px;
-      overflow: auto;
-      height: 300px;
-      }
-      .create{
-      	float: right;
-      }
-       button{
-      width: 100px;
-      height: 100px;
-        background-color: #949494;
-        color: #fff;
-        padding: 5px;
-         font-size: 30px;
-        font-weight: bold;
-        border-radius: 1em;
-        box-shadow: 6px 6px #666;
-      }
-      .back{
-      width: 100%;
-      height: 100px;
-        background-color: #949494;
-        color: #fff;
-        padding: 5px;
-         font-size: 30px;
-        font-weight: bold;
-        border-radius: 1em;
-        box-shadow: 6px 6px #666;
-      }
-      #cnv{
-      	width: 700px;
-      height: 800px;
-      	display: none;
-      margin: auto;
-     /* background-color: #33ADFF;*/
-      }
-          #siting{
-      	width: 100%;
-      height: 400px;
-     /* background-color: #33ADFF;*/
-      }
-      #text{
-      	width: 100%;
-      text-decoration: Lato;
-      font-size: 50px;
-      }
-      .Namelevel{
-      font-size: 50px;
-     text-align:  center;
-      }
-      #CANVAS{
-      	zoom: 70%;
-      }
-      #gameOver{
-      	position: fixed; 
-    top: 0; 
-    left: 0; 
-    width: 100%; 
-    height: 100%; 
-    background: rgba(0,0,0,0.8); 
-    display: none; 
-}
-#gameOver2{
-      	 position: absolute; 
-    background: #ffffff; 
-    width: 400px; 
-    left: 50%; 
-    top: 50%; 
-    transform: translate(-50%, -50%); 
-    padding: 30px; 
-    padding-top: 60px; 
-}
-    </style>
+    <link rel="stylesheet" href="style/main.css">
   </head>
- 
   <body>
     <div id="main">
       <button class="back" onclick="
@@ -137,14 +44,13 @@ menu.id.level.style.display = 'block';
       </div>
       </div>
     
- <script src = "js/image.js"></script>
-<script src = "js/menu.js"></script>
-<script src = "js/map.js"></script>
-<script src = "js/player.js"></script>
-<script src = "js/jump.js"></script>
-<script src = "js/control.js"></script>
-<script src = "js/local.js"></script>
-<script src = "js/draw.js"></script>
-  
-</body>
+    <script src="js/image.js"></script>
+    <script src="js/menu.js"></script>
+    <script src="js/map.js"></script>
+    <script src="js/player.js"></script>
+    <script src="js/jump.js"></script>
+    <script src="js/control.js"></script>
+    <script src="js/local.js"></script>
+    <script src="js/draw.js"></script>
+  </body>
 </html>
