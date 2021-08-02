@@ -1,0 +1,17 @@
+{
+  "name": "frogjump",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danila67/frogjump.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danila67/frogjump/issues"
+  },
+  "homepage": "https://github.com/danila67/frogjump#readme"
+}
