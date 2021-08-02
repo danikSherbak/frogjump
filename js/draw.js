@@ -16,6 +16,7 @@ function draw(){
 	level.check();
 	menu.draw(); 
 	
+	fun_dom.check();
 }
 setInterval(draw,25);
 

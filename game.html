@@ -2,46 +2,30 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Название документа</title>
+    <title>frog jump</title>
     <link rel="stylesheet" href="style/main.css">
   </head>
   <body>
+
     <div id="main">
-      <button class="back" onclick="
-menu.id.level.style.display = 'block';
-	menu.id.main.style.display = 'none';
-	menu.what = 'level';
-">play</button>
+      <button id="button_back" class="back">play</button>
     </div>
     
     <div id="level">
-   	<button onclick="back()">back</button>
-   <div id="levelNumber"></div>
+   	  <button onclick="back()">back</button>
+      <div id="levelNumber"></div>
     </div>
     
       <div id="cnv">
       	<button class="back" onclick="level.back()">back</button>
-      <canvas id="CANVAS">NO</canvas>
+        <canvas id="CANVAS">NO</canvas>
       </div>
-      <div id="gameOver" onclick="
-    menu.id.gameOver.style.display = 'none';" >
+
+      <div id="gameOver">
       	<div id="gameOver2">
-      	<button onclick="
-    menu.id.gameOver.style.display = 'none';
-	player.restart ();
-           ">restart</button>
-          <button class="create" onclick="
-          menu.id.gameOver.style.display = 'none';
-          if(player.what === 'level') {
-    	menu.id.level.style.display = 'block';
-	menu.id.canvas.style.display = 'none';
-	} else {
-		createMap.array[createMap.number].divId.style.display = 'block';
-	menu.id.canvas.style.display = 'none';
-	}
-	player.restart ();
-           ">back</button>
-      </div>
+      	 <button id="button_restart">restart</button>
+         <button id="button_back_gameOver" class="create">back</button>
+        </div>
       </div>
     
     <script src="js/image.js"></script>
@@ -51,6 +35,7 @@ menu.id.level.style.display = 'block';
     <script src="js/jump.js"></script>
     <script src="js/control.js"></script>
     <script src="js/local.js"></script>
+    <script src="js/fun_dom.js"></script>
     <script src="js/draw.js"></script>
   </body>
 </html>
