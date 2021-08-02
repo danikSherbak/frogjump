@@ -13,5 +13,9 @@
   "bugs": {
     "url": "https://github.com/danila67/frogjump/issues"
   },
-  "homepage": "https://github.com/danila67/frogjump#readme"
+  "homepage": "https://github.com/danila67/frogjump#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "webpack": "^5.48.0"
+  }
 }
