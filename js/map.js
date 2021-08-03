@@ -1,16 +1,214 @@
+const cellWidth = 50;
+const cellHeight = 50;
+    
+class Lend {
+	constructor(x,y,index) {
+		this.x = x;
+		this.y = y;
+		this.x2 = this.x + cellWidth;
+		this.y2 = this.y + cellHeight;
+		this.what = "lend";
+		this.index = index;
+	}
+	check() {
+    }
+	draw() {
+		ctx.drawImage(objectImage[1],this.x,this.y,cellWidth,cellHeight);
+       ctx.drawImage(objectImage[0],this.x,this.y,cellWidth,cellHeight);
+    }
+}
+
+class Grunge {
+	constructor(x,y,index) {
+		this.x = x;
+		this.y = y;
+		this.x2 = this.x + cellWidth;
+		this.y2 = this.y + cellHeight;
+		this.what = "grunge";
+		this.index = index;
+	}
+	check() {
+		if(this.x > player.x && this.y === player.y) {
+		if(numberX >= this.x) numberX = player.x + (this.x - player.x2);
+		}
+		if(this.x < player.x && this.y === player.y) {
+		if(numberXminus <= this.x2) numberXminus = player.x - (player.x - this.x2);
+		}
+		if(this.y > player.y && this.x === player.x) {
+		if(numberY >= this.y) numberY = player.y + (this.y - player.y2);
+		}
+		if(this.y < player.y && this.x === player.x) {
+		if(numberYminus <= this.y2) numberYminus = player.y - (player.y - this.y2);
+		}
+    }
+	draw() {
+       ctx.drawImage(objectImage[4],this.x,this.y,cellWidth,cellHeight);
+    }
+}
+
+class Block {
+	constructor(x,y,index) {
+		this.x = x;
+		this.y = y;
+		this.x2 = this.x + cellWidth;
+		this.y2 = this.y + cellHeight;
+		this.what = "block";
+		this.index = index;
+	}
+	check() {
+		if(player.jump) if(player.x === this.x && player.y === this.y) player.life = false;
+    }
+	draw() {
+       ctx.drawImage(objectImage[1],this.x,this.y,cellWidth,cellHeight);
+    }
+}
+
+class Coins {
+	constructor(x,y,index) {
+		this.x = x;
+		this.y = y;
+		this.what = "coins";
+		this.x2 = this.x + cellWidth;
+		this.y2 = this.y + cellHeight;
+		this.life = true;
+		this.index = index;
+	}
+	check() {
+		if(this.life) {
+          if(player.x === this.x && player.y === this.y) { 
+     	level.array[level.number].array[this.index] = '0';
+      player.coins++;
+      this.life = false;
+    }
+  }
+}
+	draw() {
+		ctx.drawImage(objectImage[1],this.x,this.y,cellWidth,cellHeight);
+    ctx.drawImage(objectImage[0],this.x,this.y,cellWidth,cellHeight);
+		if(this.life) ctx.drawImage(objectImage[3],this.x +12,this.y +10,30,30);
+    }
+}
+class Star {
+	constructor(x,y,index,level,what) {
+		this.x = x;
+		this.y = y;
+		this.x2 = this.x + cellWidth;
+		this.y2 = this.y + cellHeight;
+		this.what = "star";
+		this.life = true;
+		this.index = index;
+		this.level = level;
+		this.what = what;
+	}
+	check() {
+		if(this.life) {
+          if(player.x === this.x && player.y === this.y) { 
+     	level.array[level.number].array[this.index] = '0';
+      player.coins += 2;
+      this.life = false;
+    }
+  }
+}
+	draw() {
+		   ctx.drawImage(objectImage[1],this.x,this.y,cellWidth,cellHeight);
+       ctx.drawImage(objectImage[0],this.x,this.y,cellWidth,cellHeight);
+		  if(this.life) {
+         ctx.drawImage(objectImage[2],this.x + 12,this.y + 10,30,30);
+    }
+  }
+}
+
+class Start {
+	constructor(x,y,index) {
+		this.x = x;
+		this.y = y;
+		this.x2 = this.x + cellWidth;
+		this.y2 = this.y + cellHeight;
+		this.what = "start";
+		this.index = index;
+		this.a = true;
+	}
+	check() {
+		if(this.a) {
+		player.x = this.x;
+		player.y = this.y;
+		this.a = false;
+		}
+    }
+	draw() {
+		ctx.drawImage(objectImage[1],this.x,this.y,cellWidth,cellHeight);
+       ctx.drawImage(objectImage[0],this.x,this.y,cellWidth,cellHeight);
+    }
+}
+
+class Finish {
+	constructor(x,y,index,level) {
+		this.x = x;
+		this.y = y;
+		this.x2 = this.x + cellWidth;
+		this.y2 = this.y + cellHeight;
+		this.what = "finish";
+		this.index = index;
+		this.a = true;
+		this.level = level;
+	}
+	check() {
+		if(player.x === this.x && player.y === this.y) level.array[this.level].complete = true; 
+    }  
+	draw() {
+		   ctx.drawImage(objectImage[1],this.x,this.y,cellWidth,cellHeight);
+       ctx.drawImage(objectImage[0],this.x,this.y,cellWidth,cellHeight);
+       ctx.beginPath();
+       ctx.fillStyle = "black";
+       ctx.fillRect(this.x + 20, this.y,30,10);
+    }
+}
+
+class Thorn {
+	constructor(x,y,index,position) {
+		this.x = x;
+		this.y = y;
+		this.what = "thorn";
+		this.position = position;
+		this.index = index;
+	}
+	check() {
+		this.x2 = this.x + cellWidth;
+		this.y2 = this.y + cellHeight;
+
+    if(player.x === this.x && player.y === this.y) player.life = false;
+    }
+	draw() {
+		ctx.drawImage(objectImage[1],this.x,this.y,cellWidth,cellHeight);
+		switch(this.position) {
+		case "up":
+       ctx.drawImage(objectImage[5],this.x,this.y,cellWidth,cellHeight);
+    break;
+    case "down":
+       ctx.drawImage(objectImage[6],this.x,this.y,cellWidth,cellHeight);
+    break;
+    case "left":
+       ctx.drawImage(objectImage[8],this.x,this.y,cellWidth,cellHeight);
+    break;
+    case "right":
+       ctx.drawImage(objectImage[7],this.x,this.y,cellWidth,cellHeight);
+    break;
+  	}
+  }
+} 
 
 let level = {
     number: 0,
     array: [],
     back() {
     	menu.id.level.style.display = 'block';
-	menu.id.canvas.style.display = 'none';
+     	menu.id.canvas.style.display = 'none';
     },
     check() {
-    	for(let i = 0; i < level.array.length; i++) {
-     level.array[i].checkMap();
-     }
-    },
+    for(let i = 0; i < level.array.length; i++) {
+    	level.array[i].checkMap();
+    }
+  },
 }
 
 class Level {
@@ -130,7 +328,6 @@ this.buttonID = document.getElementById(this.idName);
 		}
 	}
 	checkMap() {
-		if(!this.index === 0) {if(!this.level) { if(level.array[this.index - 1].complete === true) this.level = true; }}
    	this.buttonID.addEventListener('click', (event) => {
    level.number = this.index;
     menu.what = "levelDraw";
@@ -142,127 +339,12 @@ this.buttonID = document.getElementById(this.idName);
     
     player.check();
 });
-if(!this.complete) this.buttonID.style.background = "grey";
-if(!this.level) this.buttonID.style.display = "none";
-if(this.level) this.buttonID.style.display = "block";
+
+if(!this.index === 0) { if(level.array[this.index - 1].complete) this.level = true; }
+
 if(this.complete) this.buttonID.style.background = "green";
+else this.buttonID.style.background = "grey";
+if(this.level) this.buttonID.style.display = "block";
+else this.buttonID.style.display = "none";
 	}
 }
-
-
-level.array[0] = new Level("small",[
-     1,'1','1','1','1','1','1','1','1','1',1,
-     1,':','#','#','0','#','<','#','#','*',1,
-     1,'#','#','#','#','#','#','#','#','#',1,
-     1,'#','#','#','#','#','`','#','`','#',1,
-     1,'0','#','#','0','#','#','0','#','$',1,
-     1,'#','#','#','#','#','>','#','#','#',1,
-     1,'#','#','#','#','#','#','$','#','#',1,
-     1,'0','#','#','*','<','#','#','>','#',1,
-     1,'#','#','#','#','#','#','#','#',';',1,
-     1,'*','<','#','#','#','#','0','<','#',1,
-     1,'1','1','1','1','1','1','1','1','1',1
-], 0, "1");
-
-
-level.array[1] = new Level("small",[
-	 1, "1", "1", "1", "1", "1", "1", "1", "1", 1,
-     1, ":", "#", "$", "^", "#", "0", "#", "$", 1, 
-     1, "#", "#", "#", "#", "#", "#", "#", "#", 1, 
-     1, "0", "#", "#", "#", "#", "0", "^", "*", 1, 
-     1, "^", "#", "#", "#", "#", "#", "#", ";", 1, 
-     1, "#", "#", "#", "#", "#", "#", "#", "#", 1, 
-     1, "*", "^", "0", "#", "#", "0", "^", "*", 1, 
-     1, "#", "#", "#", "#", "#", "#", "#", "#", 1, 
-     1, "$", "#", "0", "#", "#", "0", "#", "$", 1, 
-     1, "1", "1", "1", "1", "1", "1", "1", "1", 1
-], 1, "2");
-
-level.array[2] = new Level("small",[
-	 1,'1','1','1','1','1','1','1','1',1,
-     1,':','#','#','0','0','#','#','*',1,
-     1,'#','#','#','#','#','#','#','#',1,
-     1,'#','#','#','`','`','#','#','#',1,
-     1,'0','#','<','$','$','<','#','0',1,
-     1,'0','#','#','0','0','<','#','0',1,
-     1,'^','#','#','#','^','#','#','#',1,
-     1,'#','#','#','#','#','#','#','#',1,
-     1,'*','#','#','0','<','#','#',';',1,
-     1,'1','1','1','1','1','1','1','1',1
-], 2, "3");
-
-
-level.array[3] = new Level("big",[
-	 1,'1','1','1','1','1','1','1','1','1','1','1','1',1,
-      1,':','#','#','0','#','#','#','#','0','<','#','*',1,
-      1,'#','#','#','#','#','#','#','#','#','#','#','#',1,
-      1,'#','#','#','#','#','#','#','#','#','#','#','#',1,
-       1,'0','#','#','0','<','#','#','>','0','#','#','0',1,
-      1,'#','#','#','#','#','`','`','#','^','#','#','#',1,
-       1,'0','0','<','#','>','$','$','<','#','#','#','#',1,
-      1,'^','0','#','#','#','$','$','<','#','#','#','#',1,
-     1,'#','#','#','#','#','^','^','#','#','#','#','#',1,
-     1,'0','#','#','0','#','#','#','>','0','#','#','0',1,      
-     1,'#','#','#','^','#','#','#','#','#','#','#','`',1,
-     1,'#','#','#','#','#','#','#','#','#','#','#',';',1,
-      1,'*','#','#','0','<','#','#','>','0','#','#','*',1,
-      1,'1','1','1','1','1','1','1','1','1','1','1','1',1
-], 3, "4");
-
-level.array[4] = new Level("big",[
-	 1,'1','1','1','1','1','1','1','1','1','1','1','1',1,
-     1,':','#','#','#','#','0','<','#','#','#','#',';',1,
-     1,'#','#','#','#','#','#','#','#','#','#','#','#',1,
-     1,'#','#','#','#','#','#','#','#','#','#','#','#',1,
-     1,'0','#','#','#','#','#','#','#','#','#','#','0',1,
-     1,'#','#','#','#','#','#','#','#','#','#','`','#',1,
-     1,'#','#','#','#','>','$','#','#','#','#','*','#',1,
-     1,'#','#','#','#','#','^','#','#','#','#','#','#',1,
-     1,'0','#','#','#','#','0','#','#','#','#','#','$',1,
-     1,'^','#','#','#','#','#','#','#','#','#','#','#',1,
-      1,'#','#','#','#','#','#','#','#','#','#','#','#',1,
-      1,'#','#','#','#','#','#','#','`','#','#','#','#',1,
-      1,'#','#','#','#','#','*','#','0','#','#','#','0',1,
-       1,'1','1','1','1','1','1','1','1','1','1','1','1',1
-], 4, "5");
-
-
-level.array[5] = new Level("big",[
-	 1,'1','1','1','1','1','1','1','1','1','1','1','1',1,
-     1,':','0','0','0','<','`','`','`','`','`','>','*',1,
-     1,'^','^','>','0','<','>','0','<','`','`','>','0',1,
-     1,'`','`','>','0','<','>','0','<','>','0','0','0',1,
-     1,'>','0','0','0','0','0','0','0','0','0','<','^',1,
-     1,'>','0','<','0','<','>','0','<','>','0','<','`',1,
-     1,'*','0','<','0','<','>','0','<','>','0','<','`',1,
-     1,'^','^','>','0','<','>','0','<','>','0','<','`',1,
-     1,'>','0','0','0','<','`','$','`','>','0','<','`',1,
-     1,'>','0','<','0','<','`','`','`','`','0','`','`',1,
-     1,'>','0','<','0','0','$','<','0','0','0','0',';',1,
-       1,'*','0','<','^','^','^','^','^','>','0','`','`',1,
-       1,'^','^','^','^','^','^','^','^','>','0','0','$',1,
-       1,'1','1','1','1','1','1','1','1','1','1','1','1',1
-],5, "6");
-
-level.array[6] = new Level("bigger",[
-	 1,'1','1','1','1','1','1','1','1','1','1','1','1','1','1','1','1',1,
-      1,':','#','#','#','0','#','#','#','0','<','0','<','0','<','>','*',1,
-      1,'#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#',1,
-      1,'#','#','#','#','#','#','#','#','#','#','#','>','0','#','#','0',1,
-       1,'#','#','#','#','#','#','#','#','#','#','#','#','^','#','#','^',1,
-      1,'0','#','#','#','0','#','#','#','0','#','0','<','#','#','#','#',1,
-       1,'#','#','#','#','#','#','#','#','^','#','`','#','#','#','#','`',1,
-        1,'#','#','#','>','0','#','#','#','#','#','0','#','#','#','#','0',1,
-       1,'#','#','#','#','#','`','#','#','#','#','^','#','#','#','#','#',1,
-       1,'0','#','#','#','#','$','<','#','#','#','#','#','#','#','#','#',1,
-        1,'^','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#',1,
-       1,'#','`','#','#','#','#','#','#','#','#','`','#','#','#','#','#',1,
-       1,'>','0','#','#','0','<','#','#','#','>','$','#','#','#','#','0',1,
-       1,'#','#','#','#','^','#','#','#','#','#','^','#','#','#','#','#',1,
-       1,'#','#','#','#','`','#','#','#','#','#','#','#','#','#','#','#',1,
-       1,'>','0','#','#','0','<','#','#','#','#','#','#','#','#','#','#',1,
-       1,'#','^','#','#','*','#','#','#','#','#','#','#','#','#','#',';',1,
-     1,'1','1','1','1','1','1','1','1','1','1','1','1','1','1','1','1',1
-],6, "7");
-
-level.array[0].level = true;
