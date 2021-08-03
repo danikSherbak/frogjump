@@ -339,5 +339,8 @@ this.buttonID = document.getElementById(this.idName);
     
     player.check();
 });
+
+if(this.complete) this.buttonID.style.background = "green";
+else this.buttonID.style.background = "grey";
 	}
 }
