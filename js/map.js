@@ -339,12 +339,5 @@ this.buttonID = document.getElementById(this.idName);
     
     player.check();
 });
-
-if(!this.index === 0) { if(level.array[this.index - 1].complete) this.level = true; }
-
-if(this.complete) this.buttonID.style.background = "green";
-else this.buttonID.style.background = "grey";
-if(this.level) this.buttonID.style.display = "block";
-else this.buttonID.style.display = "none";
 	}
 }
