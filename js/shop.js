@@ -3,12 +3,13 @@ let shop = {
   array: [],
   id: document.getElementById("imageShop"),
   check() {
-    //this.id.src = this.array[this.number].src;
-
     for (let i = 0; i < this.array.length; i++) {
       this.array[i].check();
     }
 
+    this.id.addEventListener('click', (event) => {
+      this.array[this.number].buy();
+    });
   }
 }
 
@@ -17,11 +18,18 @@ class Skin {
     this.src = src;
     this.price = price;
     this.index = index;
+    this.bought = false;
   }
   check() {
     if(shop.number === this.index) {
-      player.src = this.src;
+      if(this.bought) player.src = this.src;
       shop.id.src = this.src;
+    }
+  }
+  buy() {
+    if(player.coins >= this.price) {
+      this.bought = true;
+      player.coins -= this.price;
     }
   }
 }
