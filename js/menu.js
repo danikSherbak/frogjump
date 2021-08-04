@@ -1,11 +1,12 @@
 let menu = {
 	what: "main",
 	id: {
-		main: document.getElementById("main"),
+		    main: document.getElementById("main"),
         level: document.getElementById("level"),
         levelNumber: document.getElementById("levelNumber"),
         canvas: document.getElementById("cnv"),
         gameOver: document.getElementById("gameOver"),
+				shop: document.getElementById("shop"),
 	},
 	score() {
 		ctx.beginPath();

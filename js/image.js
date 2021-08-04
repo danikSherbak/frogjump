@@ -1,9 +1,3 @@
-const playerImage = [new Image(), new Image(), new Image(), new Image()];
-playerImage[0].src = "Sprait/Player/player.png";
-playerImage[1].src = "Sprait/Player/player2.png";
-playerImage[2].src = "Sprait/Player/player3.png";
-playerImage[3].src = "Sprait/Player/player4.png";
-
 const objectImage = [new Image(), new Image(), new Image(), new Image(),new Image(),new Image(),new Image(),new Image(),new Image(),new Image(),new Image(),new Image()];
 objectImage[0].src = "Sprait/Object/кувшинка.png";
 objectImage[1].src = "Sprait/Object/болота.png";

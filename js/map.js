@@ -340,6 +340,7 @@ this.buttonID = document.getElementById(this.idName);
     player.check();
 });
 
+this.buttonID.className = "levelButton";
 if(this.complete) this.buttonID.style.background = "green";
 else this.buttonID.style.background = "grey";
 	}

@@ -1,6 +1,6 @@
 let numberX = 0;
-	let numberY = 0;
-	let numberXminus = 0;
+let numberY = 0;
+let numberXminus = 0;
 	
 let numberYminus = 0;
 

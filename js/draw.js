@@ -12,13 +12,13 @@ function draw() {
 	localStorageReturn();
 	ctx.clearRect(0,0,canvas.width,canvas.height);
 	
-	
+	console.log(shop.number);
 	menu.draw(); 
 
 	player.gameOverCheck();
 	level.check();
 	fun_dom.check();
+	shop.check();
 }
 
 setInterval(draw,25);
-

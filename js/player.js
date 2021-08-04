@@ -4,10 +4,11 @@ let player = {
 	coins: 0,
 	x: 0,
 	y: 0,
-	create: false,
 	size: "small",
 	what: null,
 	jump: true,
+	img: new Image(),
+	src: "Sprait/Player/player.png",
 	restart() {
 		jump.local = false;
         player.jump = true;
@@ -41,19 +42,29 @@ let player = {
 	draw() {
 		player.x2 = player.x + 50;
 		player.y2 = player.y + 50;
+		player.img.src = player.src;
 		switch(player.position) {
 			case "left":
-			ctx.drawImage(playerImage[3],player.x,player.y,50,50);
+				drawImageRot(player.img,player.x,player.y,50,50,270);
 			break;
 			case "up":
-			ctx.drawImage(playerImage[0],player.x,player.y,50,50);
+			  drawImageRot(player.img,player.x,player.y,50,50,0);
 			break;
 			case "down":
-			ctx.drawImage(playerImage[1],player.x,player.y,50,50);
+				drawImageRot(player.img,player.x,player.y,50,50,180);
 			break;
 			case "right":
-			ctx.drawImage(playerImage[2],player.x,player.y,50,50);
+				drawImageRot(player.img,player.x,player.y,50,50,90);
 			break;
 		}
 	},
+}
+
+function drawImageRot(img,x,y,width,height,deg){
+	ctx.save()
+	var rad = deg * Math.PI / 180;
+	ctx.translate(x + width / 2, y + height / 2);
+	ctx.rotate(rad);   
+	ctx.drawImage(img,width / 2 * (-1),height / 2 * (-1),width,height);
+	ctx.restore();
 }
