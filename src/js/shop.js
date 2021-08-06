@@ -1,12 +1,15 @@
-let shop = {
+import { player } from './player';
+
+export const shop = {
   number: 0,
   array: [],
   id: document.getElementById("imageShop"),
+
   check() {
     for (let i = 0; i < this.array.length; i++) {
       this.array[i].check();
     }
-
+    
     this.id.addEventListener('click', (event) => {
       this.array[this.number].buy();
     });
@@ -20,12 +23,15 @@ class Skin {
     this.index = index;
     this.bought = false;
   }
+
   check() {
-    if(shop.number === this.index) {
-      if(this.bought) player.src = this.src;
+    if (shop.number === this.index) {
+      if (this.bought) player.src = this.src;
+
       shop.id.src = this.src;
     }
   }
+
   buy() {
     if(player.coins >= this.price) {
       this.bought = true;

@@ -1,4 +1,4 @@
-const fun_dom = {
+export const fun_dom = {
   get_id: {
     level: document.getElementById("button_level"),
     restart: document.getElementById("button_restart"),
@@ -38,8 +38,6 @@ const fun_dom = {
     this.get_id.restart.addEventListener('click', (event) => {
       menu.id.gameOver.style.display = 'none';
 	    player.restart();
-    });
-
-    
+    });  
   }
 }
