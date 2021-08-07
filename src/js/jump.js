@@ -1,10 +1,12 @@
 import { player } from './player';
 import { ctx } from './cnv';
 
-export let numberX = 0,
- numberY = 0,
- numberXminus = 0,
- numberYminus = 0;
+export const jumpNumbers = { 
+	x: 0,
+	y: 0,
+	xMinus: 0,
+	yMinus: 0
+}
 
 export const jump = {
 	x: 0,
@@ -57,47 +59,46 @@ export const jump = {
 		}
 
 		if (this.local) {
-
-		switch(player.position) {
-			case "left":
-				if(player.x > numberXminus) player.x -= 10;
-				else {
-					this.local = false;
-					player.jump = true;
-				}
-				break;
-			case "up":
-				if(player.y > numberYminus) player.y -= 10;
-				else {
-					this.local = false;
-					player.jump = true;
-				}
-				break;
-			case "down":
-				if(player.y < numberY) player.y += 10;
-				else {
-					this.local = false;
-					player.jump = true;
-				}
-				break;
-			case "right":
-				if(player.x < numberX) player.x += 10;
-				else {
-					this.local = false;
-					player.jump = true;
-				}
-				break;
+			switch(player.position) {
+				case "left":
+					if (player.x > jumpNumbers.xMinus) player.x -= 10;
+					else {
+						this.local = false;
+						player.jump = true;
+					}
+					break;
+				case "up":
+					if(player.y > jumpNumbers.yMinus) player.y -= 10;
+					else {
+						this.local = false;
+						player.jump = true;
+					}
+					break;
+				case "down":
+					if(player.y < jumpNumbers.y) player.y += 10;
+					else {
+						this.local = false;
+						player.jump = true;
+					}
+					break;
+				case "right":
+					if(player.x < jumpNumbers.x) player.x += 10;
+					else {
+						this.local = false;
+						player.jump = true;
+					}
+					break;
+			}
 		}
-	}
-},
+	},
 	
 	jump() {
 		if(player.jump) {
 			this.local = true; 
-			numberX = player.x + (this.number * 50);
-			numberY = player.y  + (this.number * 50);
-			numberXminus = player.x - (this.number * 50);
-			numberYminus = player.y - (this.number * 50);
+			jumpNumbers.x = player.x + (this.number * 50);
+			jumpNumbers.y = player.y  + (this.number * 50);
+			jumpNumbers.xMinus = player.x - (this.number * 50);
+			jumpNumbers.yMinus = player.y - (this.number * 50);
 			player.jump = false;
 		}
 	}

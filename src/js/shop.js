@@ -40,6 +40,6 @@ class Skin {
   }
 }
 
-shop.array[0] = new Skin("Sprait/Player/player.png", 0,0);
-shop.array[1] = new Skin("Sprait/Player/player2.png", 0,1);
-shop.array[2] = new Skin("Sprait/Player/player.png", 0,2);
+shop.array[0] = new Skin("images/player.png", 0,0);
+shop.array[1] = new Skin("images/player2.png", 0,1);
+shop.array[2] = new Skin("images/player.png", 0,2);
