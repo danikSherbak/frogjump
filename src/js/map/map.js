@@ -13,12 +13,7 @@ import { Coins } from './coins';
 export const level = {
 	number: 0,
 	array: [],
-
-	back() {
-		menu.id.level.style.display = 'block';
-		menu.id.canvas.style.display = 'none';
-	},
-
+	
 	check() {
     for(let i = 0; i < this.array.length; i++) {
     	this.array[i].checkMap();

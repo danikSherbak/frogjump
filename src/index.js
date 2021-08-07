@@ -1,3 +1,15 @@
 import './index.html';
 import './style/main.css';
 import './js/draw';
+import './js/control';
+import './Sprait/Object/Thorn/Down.png';
+import './Sprait/Object/Thorn/Up.png';
+import './Sprait/Object/Thorn/Left.png';
+import './Sprait/Object/Thorn/Right.png';
+import './Sprait/Object/Coins.png';
+import './Sprait/Object/grange.png';
+import './Sprait/Object/Star.png';
+import './Sprait/Object/swamp.png';
+import './Sprait/Object/water_lily.png';
+import './Sprait/Player/player.png';
+import './Sprait/Player/player2.png';

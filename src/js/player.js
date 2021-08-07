@@ -1,4 +1,3 @@
-import { player } from './player';
 import { menu } from './menu';
 import { ctx } from './cnv';
 import { jump } from './jump';
@@ -13,7 +12,7 @@ export const player = {
 	what: null,
 	jump: true,
 	img: new Image(),
-	src: "Sprait/Player/player.png",
+	src: "images/player.png",
 
 	restart() {
 		jump.local = false;

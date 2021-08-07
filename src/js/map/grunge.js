@@ -2,7 +2,7 @@ import { ctx } from '../cnv';
 import { objectImage } from '../image';
 import { CELL_WIDTH, CELL_HEIGHT } from './constants';
 import { player } from '../player';
-import { numberX, numberXminus, numberY, numberYminus } from '../jump';
+import { jumpNumbers } from '../jump';
 
 export class Grunge {
 	constructor(x, y, index) {
@@ -16,19 +16,19 @@ export class Grunge {
 
 	check() {
 		if (this.x > player.x && this.y === player.y) {
-			if (numberX >= this.x) numberX = player.x + (this.x - player.x2);
+			if (jumpNumbers.x >= this.x) jumpNumbers.x = player.x + (this.x - player.x2);
 		}
 
 		if (this.x < player.x && this.y === player.y) {
-			if (numberXminus <= this.x2) numberXminus = player.x - (player.x - this.x2);
+			if (jumpNumbers.xMinus <= this.x2) jumpNumbers.xMinus = player.x - (player.x - this.x2);
 		}
 
 		if (this.y > player.y && this.x === player.x) {
-			if (numberY >= this.y) numberY = player.y + (this.y - player.y2);
+			if (jumpNumbers.y >= this.y) jumpNumbers.y = player.y + (this.y - player.y2);
 		}
 
 		if (this.y < player.y && this.x === player.x) {
-			if (numberYminus <= this.y2) numberYminus = player.y - (player.y - this.y2);
+			if (jumpNumbers.yMinus <= this.y2) jumpNumbers.yMinus = player.y - (player.y - this.y2);
 		}
 	}
 

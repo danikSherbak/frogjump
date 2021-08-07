@@ -1,7 +1,5 @@
 import { player } from './player';
 import { ctx } from './cnv';
-import { level } from './map';
-import { jump } from './jump';
 
 export const menu = {
 	what: "main",
@@ -22,12 +20,4 @@ export const menu = {
 		ctx.fillStyle = "black";
     ctx.fillText(player.coins, 40, 150);
 	},
-
-	draw() {
-		level.array[level.number].draw();
-		level.array[level.number].checkMap();
-		player.draw();
-		jump.draw();
-		this.score();
-	}
 }

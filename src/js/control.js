@@ -2,7 +2,7 @@ import { jump } from './jump';
 import { player } from './player';
 
 document.addEventListener('keydown', function(event) {
-  if(jump.local) return;
+  if (jump.local) return;
 
   switch(event.code) {
     case "KeyA":
@@ -19,6 +19,5 @@ document.addEventListener('keydown', function(event) {
       break;
   }
 
-if(event.keyCode == 32) jump.jump();
-
+  if (event.keyCode == 32) jump.jump();
 });
